@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body>
+    {% if current_user() %}  
+    <h1>Welcome {{ current_user()['first_name'] }} here is your Astrology Photo Of The Day</h1>
+    <form action="/sessions/delete" method="POST">
+        <button>Log out</button>
+    </form>
+    <!-- print() {{ data   }} -->
+    <!-- {% if data.media_type == 'image' %} -->
+    <!-- <img src="{{ data.url }}" alt="APOD">
+    {{ data['title'] }}
+    {% endif %}
+
+    <p>{{ data.explanation }}</p>
+
+
+    {% else %} -->
+    <h1>Astrology Photo Of The Day</h1>
+    <h2>For access to a new photo EACH and every day, Sign up today!</h2>
+    <a href="/users/new_user">Sign Up!</a>
+    <a href="/sessions/login">Log in!</a>
+
+    {% endif %}
+</body>
+
+
+{% endblock %}
