@@ -4,18 +4,12 @@
 
 <body>
     {% if current_user() %}  
-    <h1>Welcome {{ current_user()['first_name'] }} here is your Astrology Photo Of The Day</h1>
-    <form action="/home/date_image">
-        <input type="date" name="date" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
-        <button>Search by date</button>
-
-    </form>
-
+    <h1>Welcome {{ current_user()['first_name'] }} here is your photo from {{image['date']}}</h1>
     <h3>{{ image['title'] }}</h3>
     <p>{{ image['explanation'] }}</p>
     <p>{{ image['date'] }}</p>
+ 
     <img src="{{ image['url'] }}" alt="Astrology Photo of the Day">
-
     <form action="/sessions/delete" method="POST">
         <button>Log out</button>
     </form>

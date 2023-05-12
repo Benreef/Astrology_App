@@ -14,7 +14,7 @@ def create():
     valid_password = bcrypt.checkpw(password.encode(), user['password_digest'].encode())
     if valid_password:
         session['user_id'] = user['id'] # this logs the user in
-        return redirect('/image')
+        return redirect('/home/image')
     else: 
         return redirect('/sessions/login')
     
