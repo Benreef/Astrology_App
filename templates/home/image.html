@@ -6,13 +6,10 @@
     {% if current_user() %}  
     <h1>Welcome {{ current_user()['first_name'] }} here is your Astrology Photo Of The Day</h1>
     <form action="/sessions/delete" method="POST">
-        <button>Log out</button>  
-    {% else %}
-    <h1>Astrology Photo Of The Day</h1>
-    <h2>For access to a new photo EACH and every day, Sign up today!</h2>
-    <a href="/users/new_user">Sign Up!</a>
-    <a href="/sessions/login">Log in!</a>
-
+        <button>Log out</button>
+    </form>
+    <h3>{{}}</h3>
+    <img src="{{ image['url'] }}" alt="Astrology Photo of the Day">
     {% endif %}
 </body>
 

@@ -1,8 +1,9 @@
 from flask import Blueprint
-from controllers.home_controller import index, result
+from controllers.home_controller import index, image, get_image
 
 home_routes = Blueprint('home_routes', __name__)
 
 
 home_routes.route('/')(index)
-home_routes.route('/')(result)
+home_routes.route('/image')(image)
+home_routes.route('/get_image')(get_image)

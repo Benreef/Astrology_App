@@ -1,7 +1,6 @@
 from flask import render_template, request, redirect, session
-import bcrypt
-
 from models.users import find_user_by_email
+import bcrypt
 
 def login():
     return render_template('sessions/login.html')
@@ -15,7 +14,7 @@ def create():
     valid_password = bcrypt.checkpw(password.encode(), user['password_digest'].encode())
     if valid_password:
         session['user_id'] = user['id'] # this logs the user in
-        return redirect('/')
+        return redirect('/image')
     else: 
         return redirect('/sessions/login')
     

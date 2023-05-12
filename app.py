@@ -10,7 +10,8 @@ from routes.sessions_routes import sessions_routes
 from services.session_info import current_user
 
 
-SECRET_KEY = os.environ.get('NASA_API_KEY')
+# SECRET_KEY = os.environ.get('NASA_API_KEY')
+SECRET_KEY = os.environ.get("NASA_API_KEY")
 
 app = Flask(__name__)
 
