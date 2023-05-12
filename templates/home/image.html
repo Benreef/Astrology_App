@@ -4,26 +4,27 @@
 
 <body>
     {% if current_user() %}  
-    <h1>Welcome {{ current_user()['first_name'] }} here is your Astrology Photo Of The Day</h1>
-    <form action="/home/date_image">
-        <input type="date" name="date" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
-        <button>Search by date</button>
+        <h1>Welcome {{ current_user()['first_name'] }} here is your Astrology Photo Of The Day</h1>
+        <form action="/home/date_image">
+            <input type="date" name="date" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+            <button>Search by date</button>
 
-    </form>
+        </form>
 
-    <h3>{{ image['title'] }}</h3>
-    <p>{{ image['explanation'] }}</p>
-    <p>{{ image['date'] }}</p>
-    <img src="{{ image['url'] }}" alt="Astrology Photo of the Day">
+        <h3>{{ image['title'] }}</h3>
+        <p>{{ image['explanation'] }}</p>
+        <p>{{ image['date'] }}</p>
+        <img src="{{ image['url'] }}" alt="Astrology Photo of the Day">
 
 
 
-    <form action="/home/add_image">
-        <button>Add your own image!</button>
-    </form>
-    <form action="/sessions/delete" method="POST">
-        <button>Log out</button>
-    </form>
+        <form action="/home/add_image">
+            <button>Add your own image!</button>
+        </form>
+        <form action="/sessions/delete" method="POST">
+            <button>Log out!</button>
+        </form>
+
     {% endif %}
 </body>
 
