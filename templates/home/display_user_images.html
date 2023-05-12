@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body>
+    {% if current_user() %}  
+    <h1>Welcome {{ current_user()['first_name'] }} here are your photos</h1>
+        {% for image in user_images: %}
+            <img src="{{ image['url'] }}" alt="">
+            <p> {{image['title'] }}</p>
+            <p> {{image['explanation'] }}</p>
+        {% endfor %}
+        <form action="/home/add_image">
+            <button>Add your own image!</button>
+        </form>
+        <form action="/sessions/delete" method="POST">
+            <button>Log out</button>
+        </form>
+        <a href="/home/image">Back to APOD</a>
+    {% endif %}
+</body>
+
+
+{% endblock %}

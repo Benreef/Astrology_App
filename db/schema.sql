@@ -6,8 +6,7 @@ CREATE TABLE astro (
     title TEXT,
     explanation TEXT,
     url TEXT,
-    date DATE,
-    copyright TEXT
+    date TEXT
 );
 
 CREATE TABLE users(

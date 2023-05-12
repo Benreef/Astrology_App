@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body>
+    {% if current_user() %}  
+    <h1>Welcome {{ current_user()['first_name'] }} add your own photo!</h1>
+    <h3>Add Image</h3>
+    <form action="/home/user_image" method="POST">
+        <label for="">Title: </label>
+        <input type="text" name="title">
+
+        <label for="">Image URL: </label>
+        <input type="text" name="url">
+        
+        <label for="">Explanation: </label>
+        <input type="text" name="explanation">
+
+        <label for="">Date: </label>
+        <input type="text" name="date">
+
+        <button>Add image</button>
+    </form>
+
+    <form action="/sessions/delete" method="POST">
+        <button>Log out</button>
+    </form>
+    {% endif %}
+</body>
+
+
+{% endblock %}

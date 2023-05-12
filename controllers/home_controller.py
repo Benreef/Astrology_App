@@ -1,6 +1,8 @@
-from flask import Blueprint, render_template, Flask, request, session
+from flask import Blueprint, render_template, Flask, request, session, redirect
 import requests, os, datetime
 from services.session_info import current_user
+from models.images import create_image, find_user_image
+
 SECRET_KEY = os.environ.get("NASA_API_KEY")
 home_routes = Blueprint('home_routes', __name__)
 
@@ -35,3 +37,21 @@ def date_image():
     image = get_date(date)
     return render_template('home/date_image.html', image=image, current_user=current_user)
  
+def new():
+    print('new')
+    return render_template('/home/add_image.html', current_user=current_user)
+
+def create():
+    print('create')
+    title = request.form.get('title')
+    explanation = request.form.get('explanation')
+    url = request.form.get('url')
+    date = request.form.get('date')
+    create_image(title, explanation, url, date, current_user()['id'])
+    return redirect('/home/display_user_images')
+
+def show_photos():
+    print('show')
+    user_images = find_user_image(current_user()['id'])
+    return render_template('/home/display_user_images.html', user_images=user_images, current_user=current_user)
+
