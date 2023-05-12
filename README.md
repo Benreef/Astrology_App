@@ -10,7 +10,7 @@ My Astrology App, Cool things to com
 
 ### Planning & Problem Solving
 
-![Alt text](blob:https://imgur.com/d1b63fd6-6830-4c3c-8364-4b21e35735c8)
+(resources/APOD.png)
 
 ### Cool tech
 - I like the date range picker, the ability to search through the history of astrological photos is wicked!
