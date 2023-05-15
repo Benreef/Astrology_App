@@ -18,3 +18,16 @@ CREATE TABLE users(
 );
 
 
+ALTER TABLE astro ADD COLUMN user_id INTEGER REFERENCES users(id);
+
+
+CREATE TABLE user_fav(
+    id SERIAL PRIMARY KEY,
+    title TEXT,
+    explanation TEXT,
+    url TEXT,
+    date TEXT,
+    user_id INTEGER REFERENCES users(id),
+    image_id INTEGER
+);
+

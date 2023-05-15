@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, Flask, request, session, redirect
 import requests, os, datetime
 from services.session_info import current_user
-from models.images import create_image, find_user_image, find_image_id, update_image, delete_image
+from models.images import create_image, find_user_image, find_image_id, update_image, delete_image, user_favourite, find_user_fav
 
 SECRET_KEY = os.environ.get("NASA_API_KEY")
 home_routes = Blueprint('home_routes', __name__)
@@ -50,12 +50,10 @@ def create():
     return redirect('/home/display_user_images')
 
 def show_photos():
-    print('show')
     user_images = find_user_image(current_user()['id'])
     return render_template('/home/display_user_images.html', user_images=user_images, current_user=current_user)
 
 def edit(id):
-    print('Meow')
     image = find_image_id(id)
     return render_template('/home/edit.html', image=image)
 
@@ -70,3 +68,17 @@ def update(id):
 def delete(id):
     delete_image(id)
     return redirect ('/home/display_user_images')
+
+def favourite():
+    user_id = current_user()['id']
+    image_id = get_image()['id']
+    title = request.form.get('title')
+    explanation = request.form.get('explanation')
+    url = request.form.get('url')
+    date = request.form.get('date')
+    user_favourite(title, explanation, url, date, user_id, image_id)
+    return redirect('/home/image')
+
+def display_fav():
+    user_fav = find_user_fav(current_user()['id'])
+    return render_template('/home/user_fav', current_user=current_user, user_fav=user_fav)

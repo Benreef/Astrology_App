@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<body>
+    {% if current_user() %}  
+    <h1>Welcome {{ current_user()['first_name'] }} here are your favourite photos</h1>
+        {% for fav in user_fav: %}
+        <div class="images">
+            <img src="{{ image['url'] }}" alt="">
+            <p class="title"> {{ image['title'] }}</p>
+            <p class="explanation"> {{ image['explanation'] }}</p>
+            <p class="date"> {{ image['date'] }}</p>
+                <section class="controls">
+                        <form action="/home/{{ image['id'] }}/delete" method="POST">
+                                <button>Delete</button>
+                        </form>
+                </section>    
+        </div>        
+        {% endfor %}
+        <div class="user_controllers">
+            <a href="/home/image">Back to APOD</a>
+            <form action="/sessions/delete" method="POST">
+                <button>Log out</button>
+            </form>
+        </div>
+       
+    {% endif %}
+</body>
+
+
+{% endblock %}

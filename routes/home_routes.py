@@ -1,5 +1,5 @@
 from flask import Blueprint
-from controllers.home_controller import index, image, get_image, date_image, new, create, show_photos, edit, update, delete
+from controllers.home_controller import index, image, get_image, date_image, new, create, show_photos, edit, update, delete, favourite
 
 home_routes = Blueprint('home_routes', __name__)
 
@@ -14,3 +14,4 @@ home_routes.route('/display_user_images')(show_photos)
 home_routes.route('/<id>/edit')(edit)
 home_routes.route('/<id>', methods=["POST"])(update)
 home_routes.route('/<id>/delete', methods=["POST"])(delete)
+home_routes.route('/<id>/favourite', methods=["POST"])(favourite)

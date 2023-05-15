@@ -15,3 +15,10 @@ def update_image(id, title, explanation, url, date):
 
 def delete_image(id):
     sql('DELETE FROM astro WHERE id=%s RETURNING *', [id])
+
+def user_favourite(title, explanation, url, date, user_id, image_id):
+    sql('INSERT INTO user_fav(title, explanation, url, date, user_id, image_id) VALUES (%s, %s, %s, %s, %s, %s)', [title, explanation, url, date, user_id, image_id])
+
+def find_user_fav(user_id):
+    fav_image = sql('SELECT * FROM user_fav WHERE user_id = %s ORDER BY id', [user_id])
+    return fav_image[0]
