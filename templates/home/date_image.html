@@ -4,19 +4,31 @@
 
 <body>
     {% if current_user() %}  
-    <h1>Welcome {{ current_user()['first_name'] }} here is your photo from {{image['date']}}</h1>
+    <h1>{{ current_user()['first_name'] }} here is your photo from {{image['date']}}</h1>
+    <div class="APOD">
+        <h3>{{ image['title'] }}</h3>
+        <img src="{{ image['url'] }}" alt="Astrology Photo of the Day">
+        <p class="APOD_explanation">{{ image['explanation'] }}</p>
+        <p>{{ image['date'] }}</p>
+    </div>
+    <div class="date">
+        <form action="/home/date_image">
+            <input type="date" name="date" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+            <button>Search by date</button>
+        </form>
+    </div>   
+    <div class="APOD_controllers">
+        <form action="/home/display_user_images">
+            <button>See your own photos!</button>
+        </form>
+        <form action="/home/add_image">
+            <button>Add your own image!</button>
+        </form>
+        <form action="/sessions/delete" method="POST">
+            <button>Log out!</button>
+        </form>
+    </div>
 
-    
-    <h3>{{ image['title'] }}</h3>
-    <p>{{ image['explanation'] }}</p>
-    <p>{{ image['date'] }}</p>
- 
-    <img src="{{ image['url'] }}" alt="Astrology Photo of the Day">
-    <form action="/sessions/delete" method="POST">
-        <button>Log out</button>
-    </form>
-
-    <a href="/home/image">Return to APOD</a>
     {% endif %}
 </body>
 
