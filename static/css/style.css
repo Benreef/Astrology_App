@@ -1,21 +1,18 @@
 * {
-    /* to ensure padding and border box are accounted for when calculating width and height  */
     box-sizing: border-box;
-
-}
-
+  }
+  
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-image: url(https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80);
-    background-repeat: no-repeat;
-    background-size: 100%;
-
+    background-color: #f2f2f2;
+    color: #333;
 }
-
+  
 h1 {
+    font-size: 2rem;
+    margin-top: 0;
     text-align: center;
 }
-
 p.title {
     font-size: 1.2rem;
     font-weight: bold;
@@ -46,17 +43,24 @@ p.date {
     text-align: center;
     padding-bottom: 1.5rem;
   }
-a,
-button {
-
-    border: 1px solid black;
-    padding: 0.25rem 0.5rem;
-    background-color: rgb(91, 91, 91);
-    color: white;
-    font-size: 0.8rem;
-    text-decoration: none;
-    cursor: pointer;
+  
+img {
+    max-width: 100%;
+    height: auto;
 }
+  
+/* 
+    float: center;
+    
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.APOD_image {
+    float: center;
+    margin-right: 20px;
+    max-width: 50%;
+} */
 .APOD {
     display: flex;
     flex-direction: column;
@@ -65,9 +69,44 @@ button {
     margin-top:  1.5rem;
     margin-bottom: 1.5rem;
 }
-.APOD_controllers {
+.APOD_explanation {
+    max-width: 900px;
+}
+a,
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+
+}
+
+  
+button:hover {
+    text-decoration: underline;
+}
+a:hover {
+    text-decoration: underline;
+}
+.user_controllers {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+}
+.APOD_controllers {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+}
+.date {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
 }

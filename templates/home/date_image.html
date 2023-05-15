@@ -5,6 +5,8 @@
 <body>
     {% if current_user() %}  
     <h1>Welcome {{ current_user()['first_name'] }} here is your photo from {{image['date']}}</h1>
+
+    
     <h3>{{ image['title'] }}</h3>
     <p>{{ image['explanation'] }}</p>
     <p>{{ image['date'] }}</p>

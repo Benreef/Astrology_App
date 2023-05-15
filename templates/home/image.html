@@ -5,18 +5,19 @@
 <body>
     {% if current_user() %}  
         <h1>Welcome {{ current_user()['first_name'] }} here is your Astrology Photo Of The Day</h1>
-        <form action="/home/date_image">
-            <input type="date" name="date" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
-            <button>Search by date</button>
-
-        </form>
+   
         <div class="APOD">
             <h3>{{ image['title'] }}</h3>
+            <img src="{{ image['url'] }}" alt="Astrology Photo of the Day">
             <p class="APOD_explanation">{{ image['explanation'] }}</p>
             <p>{{ image['date'] }}</p>
-            <img src="{{ image['url'] }}" alt="Astrology Photo of the Day">
         </div>
-        
+        <div class="date">
+            <form action="/home/date_image">
+                <input type="date" name="date" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+                <button>Search by date</button>
+            </form>
+        </div>   
         <div class="APOD_controllers">
             <form action="/home/display_user_images">
                 <button>See your own photos!</button>
