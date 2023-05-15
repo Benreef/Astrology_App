@@ -8,8 +8,9 @@
         {% for image in user_images: %}
         <div class="images">
             <img src="{{ image['url'] }}" alt="">
-            <p class="title"> {{image['title'] }}</p>
-            <p class="explanation"> {{image['explanation'] }}</p>
+            <p class="title"> {{ image['title'] }}</p>
+            <p class="explanation"> {{ image['explanation'] }}</p>
+            <p class="date"> {{ image['date'] }}</p>
                 <section class="controls">
                         <a href="/home/{{ image['id'] }}/edit">
                                 Edit
@@ -20,13 +21,14 @@
                 </section>    
         </div>        
         {% endfor %}
+        <a href="/home/image">Back to APOD</a>
         <form action="/home/add_image">
             <button>Add your own image!</button>
         </form>
         <form action="/sessions/delete" method="POST">
             <button>Log out</button>
         </form>
-        <a href="/home/image">Back to APOD</a>
+       
     {% endif %}
 </body>
 
