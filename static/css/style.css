@@ -28,6 +28,7 @@ p.title {
 p.explanation {
     font-size: 0.9rem;
     font-weight: normal;
+    max-width: 900px;
 }
 p.date {
     font-size: 0.9rem;

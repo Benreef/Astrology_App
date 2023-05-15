@@ -5,14 +5,14 @@
 <body>
     {% if current_user() %}  
     <h1>Welcome {{ current_user()['first_name'] }} here are your favourite photos</h1>
-        {% for fav in user_fav: %}
+        {% for fav in fav_image: %}
         <div class="images">
-            <img src="{{ image['url'] }}" alt="">
-            <p class="title"> {{ image['title'] }}</p>
-            <p class="explanation"> {{ image['explanation'] }}</p>
-            <p class="date"> {{ image['date'] }}</p>
+            <img src="{{ fav['url'] }}" alt="">
+            <p class="title"> {{ fav['title'] }}</p>
+            <p class="explanation"> {{ fav['explanation'] }}</p>
+            <p class="date"> {{ fav['date'] }}</p>
                 <section class="controls">
-                        <form action="/home/{{ image['id'] }}/delete" method="POST">
+                        <form action="/home/{{ fav['id'] }}/delete" method="POST">
                                 <button>Delete</button>
                         </form>
                 </section>    

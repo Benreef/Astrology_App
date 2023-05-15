@@ -21,13 +21,17 @@ def update_image(id, title, explanation, url, date):
 def delete_image(id):
     sql('DELETE FROM astro WHERE id=%s RETURNING *', [id])
 
-def user_favourite(user_id, image_id):
-    sql('INSERT INTO user_fav(user_id, image_id) VALUES (%s, %s)', [user_id, image_id])
+# def user_favourite(user_id, image_id):
+#     sql('INSERT INTO user_fav(user_id, image_id) VALUES (%s, %s)', [user_id, image_id])
 
 
-def user_favourite(title, explanation, url, date, user_id, image_id):
-   return sql('INSERT INTO user_fav(title, explanation, url, date, user_id, image_id) VALUES (%s, %s, %s, %s, %s, %s)', [title, explanation, url, date, user_id, image_id])
+# # def user_favourite(title, explanation, url, date, user_id, image_id):
+# #    return sql('INSERT INTO user_fav(title, explanation, url, date, user_id, image_id) VALUES (%s, %s, %s, %s, %s, %s)', [title, explanation, url, date, user_id, image_id])
+
+
+def like_image(title, explanation, url, date, user_id):
+    sql('INSERT INTO image_likes(title, explanation, url, date, user_id) VALUES(%s, %s, %s, %s, %s) RETURNING *', [title, explanation, url, date, user_id])
 
 def find_user_fav(user_id):
-    fav_image = sql('SELECT * FROM user_fav WHERE user_id = %s ORDER BY id', [user_id])
+    fav_image = sql('SELECT * FROM image_likes WHERE user_id = %s ORDER BY id', [user_id])
     return fav_image

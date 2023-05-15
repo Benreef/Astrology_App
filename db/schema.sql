@@ -31,10 +31,18 @@ CREATE TABLE user_fav(
     image_id INTEGER
 );
 
-
 CREATE TABLE photo_comments(
     id SERIAL PRIMARY KEY,
     comment TEXT,
     user_id INTEGER REFERENCES users(id),
     created_at TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE image_likes(
+    id SERIAL PRIMARY KEY,
+    title TEXT,
+    explanation TEXT,
+    url TEXT,
+    date TEXT,
+    user_id INTEGER REFERENCES users(id)
 );
