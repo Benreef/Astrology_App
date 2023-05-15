@@ -6,9 +6,17 @@
     {% if current_user() %}  
     <h1>Welcome {{ current_user()['first_name'] }} here are your photos</h1>
         {% for image in user_images: %}
-            <img src="{{ image['url'] }}" alt="">
-            <p> {{image['title'] }}</p>
-            <p> {{image['explanation'] }}</p>
+            <section class="controls">
+                <a href="/home/{{ image['id'] }}/edit">
+                    Edit
+                </a>
+                <a href="/home/{{ image['id'] }}/delete">
+                    Delete
+                </a>
+                <img src="{{ image['url'] }}" alt="">
+                <p> {{image['title'] }}</p>
+                <p> {{image['explanation'] }}</p>
+            </section>    
         {% endfor %}
         <form action="/home/add_image">
             <button>Add your own image!</button>
