@@ -24,7 +24,7 @@ My Astrology App, Cool things to come
 
 ### Lessons learnt
 
-- 6Ps (Prior Planning Prevents P### Poor Performance) Limited the scope of my application during the planning stage which in turn made it more complicated for me towards the end, implementing for more advanced features. 
+- 6Ps (Prior Planning Prevents P### Poor Performance) Limited the scope of my application during the planning stage which in turn made it more complicated for me towards the end, implementing for more advanced features.  
 
 ### Future features
 

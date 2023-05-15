@@ -22,15 +22,12 @@ def image():
 
 
 def get_date(date):
-    print('hello')
     formatted_date = date.strftime('%Y-%m-%d')
     response = f'https://api.nasa.gov/planetary/apod?api_key={SECRET_KEY}&date={formatted_date}'
-    print(formatted_date)
     data = requests.get(response).json()
     return data
 
 def date_image():
-    print("hello")
     date_string = request.args.get('date')
     date = datetime.datetime.strptime(date_string, '%Y-%m-%d').date()
     image = get_date(date)
@@ -70,7 +67,7 @@ def delete(id):
     return redirect ('/home/display_user_images')
 
 def favourite():
-    user_id = current_user()['id']
+    user_id = current_user.id
     image_id = get_image()['id']
     title = request.form.get('title')
     explanation = request.form.get('explanation')
