@@ -12,7 +12,7 @@
             <img src="{{ image['url'] }}" alt="Astrology Photo of the Day">
             <p class="APOD_explanation">{{ image['explanation'] }}</p>
             <p>{{ image['date'] }}</p>
-            <form action="/home/{{ image['id'] }}/favourite" method="POST">
+            <form action="/home/{{ image['title'] }}/favourite" method="POST">
             <button>Favourite</button>
             </form>
         </div>

@@ -9,8 +9,8 @@ from routes.home_routes import home_routes
 from routes.sessions_routes import sessions_routes
 
 
-FLASK_SECRET_KEY = os.environ.get("FLASK_SECRET_KEY")
-SECRET_KEY = os.environ.get("NASA_API_KEY")
+SECRET_KEY = os.environ.get("SECRET_KEY")
+# SECRET_KEY = os.environ.get("NASA_API_KEY")
 
 app = Flask(__name__)
 

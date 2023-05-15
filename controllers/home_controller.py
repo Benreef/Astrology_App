@@ -67,13 +67,15 @@ def delete(id):
     return redirect ('/home/display_user_images')
 
 def favourite():
-    user_id = current_user.id
-    image_id = get_image()['id']
-    title = request.form.get('title')
-    explanation = request.form.get('explanation')
-    url = request.form.get('url')
-    date = request.form.get('date')
-    user_favourite(title, explanation, url, date, user_id, image_id)
+    response = f'https://api.nasa.gov/planetary/apod?api_key={SECRET_KEY}'
+    data = response.json()
+    title = data['title']
+    explanation = data['explanation']
+    url = data['url']
+    date = data['date']
+    user_id = current_user()['id']
+    image_id = create_image(title, explanation, url, date)
+    user_favourite(user_id['id'], image_id)
     return redirect('/home/image')
 
 def display_fav():
