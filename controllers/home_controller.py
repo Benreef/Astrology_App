@@ -65,8 +65,8 @@ def update(id):
     url = request.form.get('url')
     date = request.form.get('date')
     update_image(id, title, explanation, url, date)
-    return redirect('/home/display_user_images.html')
+    return redirect('/home/display_user_images')
 
 def delete(id):
     delete_image(id)
-    return redirect ('/home/display_user_images.html')
+    return redirect ('/home/display_user_images')

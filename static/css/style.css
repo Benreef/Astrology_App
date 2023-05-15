@@ -1,0 +1,54 @@
+* {
+    /* to ensure padding and border box are accounted for when calculating width and height  */
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+p.title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+p.explanation {
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+
+.images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    margin-top:  1.5rem;
+    margin-bottom: 1.5rem;
+}
+.images img {
+    max-width: 100%;
+}
+.images .controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 1.5rem;
+  }
+  
+a,
+button {
+
+    border: 1px solid black;
+    padding: 0.25rem 0.5rem;
+    background-color: rgb(91, 91, 91);
+    color: white;
+    font-size: 0.8rem;
+    text-decoration: none;
+    cursor: pointer;
+}
