@@ -3,7 +3,8 @@ import requests, os, datetime
 from services.session_info import current_user
 from models.images import create_image, find_user_image, find_image_id, update_image, delete_image, user_favourite, find_user_fav
 
-SECRET_KEY = os.environ.get("NASA_API_KEY")
+NASA_API_KEY = os.environ.get("NASA_API_KEY")
+
 home_routes = Blueprint('home_routes', __name__)
 
 app = Flask(__name__)
@@ -12,7 +13,7 @@ def index():
     return render_template('home/index.html', current_user=current_user)
 
 def get_image():
-    response = f'https://api.nasa.gov/planetary/apod?api_key={SECRET_KEY}'
+    response = f'https://api.nasa.gov/planetary/apod?api_key={NASA_API_KEY}'
     data = requests.get(response).json()
     return data
 
@@ -23,7 +24,7 @@ def image():
 
 def get_date(date):
     formatted_date = date.strftime('%Y-%m-%d')
-    response = f'https://api.nasa.gov/planetary/apod?api_key={SECRET_KEY}&date={formatted_date}'
+    response = f'https://api.nasa.gov/planetary/apod?api_key={NASA_API_KEY}&date={formatted_date}'
     data = requests.get(response).json()
     return data
 
@@ -67,17 +68,17 @@ def delete(id):
     return redirect ('/home/display_user_images')
 
 def favourite():
-    response = f'https://api.nasa.gov/planetary/apod?api_key={SECRET_KEY}'
+    response = f'https://api.nasa.gov/planetary/apod?api_key={NASA_API_KEY}'
     data = response.json()
     title = data['title']
     explanation = data['explanation']
     url = data['url']
     date = data['date']
     user_id = current_user()['id']
-    image_id = create_image(title, explanation, url, date)
-    user_favourite(user_id['id'], image_id)
+    image_id = create_image(title, explanation, url, date, user_id)
+    user_favourite(title, explanation, url, date, user_id, image_id)
     return redirect('/home/image')
-
+ 
 def display_fav():
     user_fav = find_user_fav(current_user()['id'])
     return render_template('/home/user_fav', current_user=current_user, user_fav=user_fav)
