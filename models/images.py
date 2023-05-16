@@ -11,11 +11,7 @@ def create_image(title, explanation, url, date, user_id):
     sql(f'INSERT INTO astro(title, explanation, url, date, user_id) VALUES (%s, %s, %s, %s, %s) RETURNING *', [title, explanation, url, date, user_id])
 
 def update_image(id, title, explanation, url, date):
-    print(id)
-    print(title)
-    print(explanation)
-    print(url)
-    print(date)
+
     sql('UPDATE astro SET title=%s, explanation=%s, url=%s, date=%s WHERE id=%s RETURNING *',[title, explanation, url, date, id])
 
 def delete_image(id):

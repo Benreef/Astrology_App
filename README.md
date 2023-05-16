@@ -1,13 +1,13 @@
 # Astrology_App
-My Astrology App, Cool things to come
+My Astrology App
 
-
+Click here to view my app! https://astrology-pictures.onrender.com/home/
 ### About 
 
 - Astrology photo of the day.
 - Users, once signed in, can favourite photos, share and choose between a date range
 - Users can add their own photos unique to their ID, this data is saved within the astrology_app database.
-- Ability to like and comment on photo (maybe)
+- Ability to like a photo to save it to your personal favourites page (maybe)
 
 ### Planning & Problem Solving
 
