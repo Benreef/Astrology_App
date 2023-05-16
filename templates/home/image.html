@@ -1,8 +1,7 @@
+<link rel="stylesheet" href="/static/css/style_home.css">
+
 {% extends 'base.html' %}
 
-
-
-<body>
 {% block content %}
     {% if current_user() %}  
         <h1>Welcome {{ current_user()['first_name'] }} here is your Astrology Photo Of The Day</h1>
@@ -38,9 +37,6 @@
         </div>
 
     {% endif %}
-
-
-</body>
 
 
 {% endblock %}

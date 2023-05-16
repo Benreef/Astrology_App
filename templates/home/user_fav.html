@@ -1,8 +1,9 @@
+<link rel="stylesheet" href="/static/css/style_home.css">
 {% extends 'base.html' %}
 
 {% block content %}
 
-<body>
+
     {% if current_user() %}  
     <h1>Welcome {{ current_user()['first_name'] }} here are your favourite photos</h1>
         {% for fav in fav_image: %}
@@ -27,7 +28,7 @@
         </div>
        
     {% endif %}
-</body>
+
 
 
 {% endblock %}
