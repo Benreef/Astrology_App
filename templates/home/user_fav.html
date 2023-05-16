@@ -12,11 +12,12 @@
             <p class="explanation"> {{ fav['explanation'] }}</p>
             <p class="date"> {{ fav['date'] }}</p>
                 <section class="controls">
-                        <form action="/home/{{ fav['id'] }}/delete" method="POST">
+                        <form action="/home/{{ fav['date'] }}/delete_img" method="POST">
                                 <button>Delete</button>
                         </form>
                 </section>    
-        </div>        
+        </div>
+
         {% endfor %}
         <div class="user_controllers">
             <a href="/home/image">Back to APOD</a>

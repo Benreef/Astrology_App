@@ -10,7 +10,8 @@
         <img src="{{ image['url'] }}" alt="Astrology Photo of the Day">
         <p class="APOD_explanation">{{ image['explanation'] }}</p>
         <p>{{ image['date'] }}</p>
-        <form action="/home/{{ image['title'] }}/likes" method="POST">
+        <form action="/home/{{ image['date'] }}/likes" method="POST">
+            <input type="hidden" name="date" value="{{ image['date'] }}">
             <button>Like</button>
           </form>
     </div>

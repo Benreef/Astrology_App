@@ -12,7 +12,8 @@
             <img src="{{ image['url'] }}" alt="Astrology Photo of the Day">
             <p class="APOD_explanation">{{ image['explanation'] }}</p>
             <p>{{ image['date'] }}</p>
-            <form action="/home/{{ image['title'] }}/likes" method="POST">
+            <form action="/home/{{ image['date'] }}/likes" method="POST">
+                <input type="hidden" name="date" value="{{ image['date'] }}">
                 <button>Like</button>
               </form>
             
@@ -30,6 +31,7 @@
             <form action="/home/add_image">
                 <button>Add your own image!</button>
             </form>
+            <a href="/home/user_fav">See your favourites!</a>
             <form action="/sessions/delete" method="POST">
                 <button>Log out!</button>
             </form>
