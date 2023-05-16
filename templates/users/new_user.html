@@ -1,9 +1,10 @@
+<link rel="stylesheet" href="/static/css/style_login.css">
 {% extends 'base.html' %}
 
 {% block content %}
 <body>
     <h1>Sign up</h1>
-    <form action="/users" method="POST">
+    <form action="/users" method="POST" class="login">
         <label for="">First Name: </label>
         <input type="text" name="first_name">
 
